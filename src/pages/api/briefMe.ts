@@ -12,5 +12,6 @@ export default async function handler(
     const body = req.body
     console.log(body)
     const response = await getSummary(body.content)
+    // const response = "This is a test response"
     res.status(200).json({ message: response })
 }
