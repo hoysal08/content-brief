@@ -3,11 +3,14 @@ import React from "react";
 import copyImage from "../assets/copyButton.svg";
 import { Spinner } from "@material-tailwind/react";
 const Summary = ({ result, showSummary = false, loading }) => {
+  const handleCopy = () => {
+    navigator.clipboard.writeText(result);
+  };
   return (
     <div className="mt-10 w-full">
       <div className="flex justify-between">
         <h2 className="my-2 text-2xl">Summary</h2>
-        {showSummary && <Image src={copyImage} alt="copy" className="w-5" />}
+        {showSummary && <Image onClick={handleCopy} src={copyImage} alt="copy" className="w-5 cursor-pointer" />}
       </div>
       <div>
         {result ? (
