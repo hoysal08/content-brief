@@ -3,9 +3,9 @@ import { LlamaCpp } from "langchain/llms/llama_cpp";
 function loadLLM() {
   const modelPath = "/Users/soorajhoysal/Downloads/llama-2-7b-chat.Q2_K.gguf";
   const temperature = 0.7;
-  const maxTokens = 1500;
+  const maxTokens = 3000;
   const topP = 1;
-  // const nCtx = 2000;
+  const nCtx = 2000;
 
   const llm = new LlamaCpp({
     modelPath: modelPath,
@@ -13,7 +13,6 @@ function loadLLM() {
     maxTokens: maxTokens,
     topP: topP,
     verbose: true,
-    // nCtx: nCtx
   });
   return llm;
 }
