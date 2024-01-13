@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Summary from "./Summary";
 import { MAX_INPUT_SIZE, rand } from "~/constants";
-import { Spinner } from "@material-tailwind/react";
 const Hero = () => {
-  const [inputText, setInputText] = useState("");
-  const [inputCount, setInputCount] = useState(0);
-  const [showSummary, setShowSummary] = useState(true);
-  const [outputText, setOutputText] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [inputText, setInputText] = useState<InputText>("");
+  const [inputCount, setInputCount] = useState<number>(0);
+  const [showSummary, setShowSummary] = useState<boolean>(true);
+  const [outputText, setOutputText] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+
+  type InputText = string;
 
   useEffect(() => {
     setInputCount(inputText.length);
@@ -28,7 +29,6 @@ const Hero = () => {
       },
     });
     const result = await response.json();
-    console.log(result);
     setOutputText(result.message);
     setLoading(false);
   };
